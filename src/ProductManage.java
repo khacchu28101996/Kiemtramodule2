@@ -116,11 +116,7 @@ public class ProductManage {
     }
 
     public void sortByPriceDecrease() {
-        products.sort((Product o1, Product o2) -> {
-            if (o1.getPrice() < o2.getPrice()) return 1;
-            else if (o1.getPrice() > o2.getPrice()) return -1;
-            else return 0;
-        });
+        products.sort((Product o1, Product o2) -> Double.compare(o2.getPrice(), o1.getPrice()));
     }
 
     public void searchByMaxPrice() {

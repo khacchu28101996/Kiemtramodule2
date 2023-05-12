@@ -6,11 +6,11 @@ public class Main {
     public static void sortMenu(ProductManage productManage) {
         int choice = -1;
         do {
-            System.out.println("1. Sắp xếp tăng dần");
-            System.out.println("2. Sắp xếp giảm dần");
+            System.out.println("1. Sắp xếp theo giá tăng dần");
+            System.out.println("2. Sắp xếp theo giá giảm dần");
             System.out.println("3. Thoát");
             try {
-                System.out.println("Mời nhập vào lựa chọn");
+                System.out.println("Nhập lựa chọn");
                 choice = Integer.parseInt(scanner.nextLine());
             }catch (Exception e){
                 System.out.println(e.getMessage());
@@ -35,6 +35,7 @@ public class Main {
         int choice;
         do {
             System.out.println("----CHƯƠNG TRÌNH QUẢN LÝ SẢN PHẨM------");
+            System.out.println("Chọn chức năng theo số (để tiếp tục)");
             System.out.println("1. Xem danh sách ");
             System.out.println("2. Thêm mới");
             System.out.println("3. Cập nhật");
