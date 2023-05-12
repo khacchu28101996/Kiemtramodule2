@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void sortMenu(ProductManage productManage) {
         int choice = -1;
@@ -32,9 +32,9 @@ public class Main {
 
     public static void main(String[] args) {
         ProductManage productManage = new ProductManage();
-        int choice = -1;
+        int choice;
         do {
-            System.out.println("----CHƯƠNG TRÌNH QUẢN LÝ SẢN PHẨM");
+            System.out.println("----CHƯƠNG TRÌNH QUẢN LÝ SẢN PHẨM------");
             System.out.println("1. Xem danh sách ");
             System.out.println("2. Thêm mới");
             System.out.println("3. Cập nhật");
@@ -56,7 +56,7 @@ public class Main {
                     productManage.displayAll();
                     break;
                 case 2:
-                    productManage.addOneProduct();
+                    productManage.addProduct();
                     break;
                 case 3:
                     productManage.updateProduct();

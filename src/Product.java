@@ -1,6 +1,6 @@
 public class Product {
     private int id;
-    private static int idTemp = 1;
+    private static int INDEX = 1;
     private String code;
     private String name;
 
@@ -8,12 +8,9 @@ public class Product {
     private int quantity;
     private String description;
 
-    public Product() {
-    }
-
     public Product(String code, String name, double price, int quantity, String description) {
         this.code = code;
-        this.id = idTemp++;
+        this.id = INDEX++;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -26,14 +23,6 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public static int getIdTemp() {
-        return idTemp;
-    }
-
-    public static void setIdTemp(int idTemp) {
-        Product.idTemp = idTemp;
     }
 
     public String getName() {

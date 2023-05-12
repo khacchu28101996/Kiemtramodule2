@@ -4,8 +4,8 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductManage {
-    private ArrayList<Product> products;
-    private Scanner scanner;
+    private final ArrayList<Product> products;
+    private final Scanner scanner;
 
     public ProductManage() {
         products = new ArrayList<>();
@@ -18,7 +18,7 @@ public class ProductManage {
         }
     }
 
-    public void addOneProduct() {
+    public void addProduct() {
         System.out.println("Nhập vào mã sản phẩm");
         String code = scanner.nextLine();
         System.out.println("Nhập vào tên sản phẩm");
@@ -97,19 +97,6 @@ public class ProductManage {
         }
     }
 
-    public int inputNum() {
-        int x;
-        do {
-            try {
-                x = Integer.parseInt(scanner.nextLine());
-                break;
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        } while (true);
-        return x;
-    }
-
     public void deleteById() {
         displayAll();
         System.out.println("Chọn id sản phẩm bạn muốn xóa");
@@ -125,24 +112,14 @@ public class ProductManage {
     }
 
     public void sortByPriceIncrease() {
-        products.sort(new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                if (o1.getPrice() > o2.getPrice()) return 1;
-                else if (o1.getPrice() < o2.getPrice()) return -1;
-                else return 0;
-            }
-        });
+        products.sort(Comparator.comparingDouble(Product::getPrice));
     }
 
     public void sortByPriceDecrease() {
-        products.sort(new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                if (o1.getPrice() < o2.getPrice()) return 1;
-                else if (o1.getPrice() > o2.getPrice()) return -1;
-                else return 0;
-            }
+        products.sort((Product o1, Product o2) -> {
+            if (o1.getPrice() < o2.getPrice()) return 1;
+            else if (o1.getPrice() > o2.getPrice()) return -1;
+            else return 0;
         });
     }
 
